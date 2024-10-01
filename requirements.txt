@@ -1,0 +1,9 @@
+Django
+djangorestframework
+requests
+django-environ 
+python-decouple
+django-redis
+python-decouple
+retrying
+gunicorn

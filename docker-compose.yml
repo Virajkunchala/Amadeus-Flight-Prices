@@ -1,0 +1,26 @@
+version: '3.8'
+
+services:
+  web:
+    build: .
+    image: pathfinder:latest 
+    volumes:
+      - .:/app
+    env_file:
+      - .env
+    ports:
+      - "8000:8000"
+    environment:
+      - DJANGO_SETTINGS_MODULE=config.settings.local
+    depends_on:
+      - redis
+    restart: unless-stopped
+    
+
+  redis:
+    image: "redis:alpine"
+    volumes:
+      - redis_data:/data
+
+volumes:
+  redis_data:
